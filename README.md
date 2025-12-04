@@ -1,3 +1,7 @@
+Lxquaver : Luca BERNARD
+Raiwli : Hugo LERNOULD
+Robin97460 : Robin ALLEMAN
+
 # Projet : Tic Tac Toe (C/C++)
 
 Ce dépôt contient le code source d'un jeu de Tic Tac Toe (Morpion) développé en C/C++ pour le terminal. Ce projet a été réalisé en groupe dans le cadre d'une évaluation technique mettant l'accent sur le développement C++ et les bonnes pratiques Git/GitHub.
