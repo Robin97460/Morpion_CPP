@@ -5,12 +5,8 @@
 
 using namespace std;
 
-string nom = AskName();
-
 int main() {
     Game game;
     game.SelectNames();
     return 0;
-
-    
 }
