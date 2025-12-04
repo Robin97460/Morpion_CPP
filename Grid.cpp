@@ -1,4 +1,5 @@
 #include "Grid.h"
+#include "Column.h"
 #include <iostream>
 
 using namespace std;

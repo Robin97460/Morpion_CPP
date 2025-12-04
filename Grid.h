@@ -1,10 +1,8 @@
-//
-// Created by hugol on 04/12/2025.
-//
+#ifndef GRID_H
+#define GRID_H
 
-#ifndef MORPION_CPP_GRID_H
-#define MORPION_CPP_GRID_H
-
+#include <array>
+#include "Column.h"
 
 class Grid {
 private:
@@ -17,6 +15,4 @@ public:
     bool columnExist(int xCoord);
 };
 
-
-
-#endif //MORPION_CPP_GRID_H
+#endif
