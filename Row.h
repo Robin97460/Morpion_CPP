@@ -1,19 +1,21 @@
-#ifndef COLUMN_H
-#define COLUMN_H
+#ifndef ROW_H
+#define ROW_H
 
 #include <array>
 #include "Square.h"
 
-class Column {
+class Row
+{
 private:
     int x;
-    array<Square,3> square_list;
+    array<Square, 3> square_list;
+
 public:
-    Column();
-    Column(int xCoord);
+    Row();
+    Row(int xCoord);
     int getX() const;
     void display();
-    Square& getSquare(int yCoord);
+    Square &getSquare(int yCoord);
     int getSquareNumber();
     bool squareExist(int yCoord);
 };
