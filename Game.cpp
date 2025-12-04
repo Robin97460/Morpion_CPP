@@ -39,6 +39,8 @@ void Game::start()
         cin >> selectedRow;
         selectedRow = selectedRow - 1;
 
+        Square &square = grid.getRow(selectedRow).getSquare(selectedCol);
+
         vector<array<Square *, 3>> combinaison_list = getCombinaisons(square);
         if (checkWin(combinaison_list))
         {
