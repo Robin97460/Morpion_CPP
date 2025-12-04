@@ -2,17 +2,19 @@
 #define GRID_H
 
 #include <array>
-#include "Column.h"
+#include "Row.h"
 
-class Grid {
+class Grid
+{
 private:
-    array<Column,3> column_list;
+    array<Row, 3> row_list;
+
 public:
     Grid();
     void display();
-    Column& getColumn(int xCoord);
+    Row &getRow(int xCoord);
     void reset();
-    bool columnExist(int xCoord);
+    bool rowExist(int xCoord);
 };
 
 #endif
