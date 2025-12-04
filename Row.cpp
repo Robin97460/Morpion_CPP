@@ -18,7 +18,7 @@ int Row::getX() const { return x; }
 void Row::display()
 {
     cout << "|";
-    for (int i = square_list.size() - 1; i >= 0; --i)
+    for (int i = 0; i < square_list.size(); ++i)
     {
         square_list[i].display();
     }

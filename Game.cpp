@@ -30,11 +30,13 @@ void Game::start()
     {
         grid.display();
         cout << "Joueur : " << currentPlayer->getNom() << endl;
-        cout << "Choisissez une colonne entre 0 et 2 : ";
+        cout << "Choisissez une colonne entre 1 et 3 : ";
         cin >> selectedCol;
+        selectedCol = selectedCol - 1;
 
-        cout << "Choisissez une ligne entre 0 et 2 : ";
+        cout << "Choisissez une ligne entre 1 et 3 : ";
         cin >> selectedRow;
+        selectedRow = selectedRow - 1;
 
         Square square = play(selectedCol, selectedRow);
         vector<array<Square *, 3>> combinaison_list = getCombinaisons(square);
