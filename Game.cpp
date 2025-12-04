@@ -31,13 +31,22 @@ void Game::start()
     {
         grid.display();
         cout << "Joueur : " << currentPlayer->getNom() << endl;
-        cout << "Choisissez une colonne entre 1 et 3 : ";
+        
+
+        bool validMove = false;
+
+        while (!validMove)
+        {
+            cout << "Choisissez une colonne entre 1 et 3 : ";
         cin >> selectedCol;
         selectedCol = selectedCol - 1;
 
         cout << "Choisissez une ligne entre 1 et 3 : ";
         cin >> selectedRow;
         selectedRow = selectedRow - 1;
+
+            validMove = play(selectedCol, selectedRow);
+        }
 
         Square &square = grid.getRow(selectedRow).getSquare(selectedCol);
 
