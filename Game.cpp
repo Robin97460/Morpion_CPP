@@ -14,8 +14,10 @@ void Game::SelectNames()
     string name1;
     cin >> name1;
     p1.setNom(name1);
+    p1.setToken("X");
     cout << "Veillez saisir le nom du joueur 2 :";
     string name2;
     cin >> name2;
     p2.setNom(name2);
+    p2.setToken("O");
 }
