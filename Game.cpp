@@ -26,57 +26,60 @@ void Game::SelectNames()
 void Game::start()
 {
     int selectedCol, selectedRow;
+
     while (true)
     {
         grid.display();
         cout << "Joueur : " << currentPlayer->getNom() << endl;
-        cout << "Choisissez une colonne entre 0 et 2 : ";
-        cin >> selectedCol;
 
-        cout << "Choisissez une ligne entre 0 et 2 : ";
-        cin >> selectedRow;
+        bool validMove = false;
 
-        Square square = play(selectedCol, selectedRow);
+        while (!validMove)
+        {
+            cout << "Choisissez une colonne entre 0 et 2 : ";
+            cin >> selectedCol;
+            cout << "Choisissez une ligne entre 0 et 2 : ";
+            cin >> selectedRow;
+
+            validMove = play(selectedCol, selectedRow);
+        }
+
+        Square &square = grid.getRow(selectedRow).getSquare(selectedCol);
+
         vector<array<Square *, 3>> combinaison_list = getCombinaisons(square);
         if (checkWin(combinaison_list))
         {
             grid.display();
             break;
         }
+
         if (currentPlayer == &p1)
-        {
             currentPlayer = &p2;
-        }
         else
-        {
             currentPlayer = &p1;
-        }
     }
-    cout << "Vainqueur :" << currentPlayer->getNom() << endl;
-    cout << "Partie terminee" << endl;
+    cout << "Vainqueur : " << currentPlayer->getNom() << endl;
+    cout << "Partie terminée" << endl;
     system("pause");
 }
 
-Square Game::play(int col, int row)
+bool Game::play(int col, int row)
 {
-    Row &currentRow = grid.getRow(row);
-
-    if (!currentRow.squareExist(col))
+    if (!grid.rowExist(row) || !grid.getRow(row).squareExist(col))
     {
-        cout << "Position invalide" << endl;
-        return currentRow.getSquare(0);
+        cout << "Position invalide (hors limites)" << endl;
+        return false;
     }
-
-    Square &selectedSquare = currentRow.getSquare(col);
+    Square &selectedSquare = grid.getRow(row).getSquare(col);
 
     if (selectedSquare.hasToken())
     {
-        cout << "Cette case est déjà prise" << endl;
-        return selectedSquare;
+        cout << "Cette case est deja prise" << endl;
+        return false;
     }
 
     selectedSquare.setToken(currentPlayer->getToken());
-    return selectedSquare;
+    return true;
 }
 
 vector<array<Square *, 3>> Game::getCombinaisons(Square square)
