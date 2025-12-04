@@ -15,12 +15,13 @@ Grid::Grid()
 void Grid::display()
 {
     system("cls");
-    cout << "---0--1--2--------------" << endl;
+    cout << "---1--2--3--------------" << endl;
     for (int line = 0; line < row_list.size(); line++)
     {
+        cout << line + 1;
         row_list[line].display();
     }
-    cout << "------------------------" << endl;
+    cout << "-----------------------" << endl;
 }
 
 Row &Grid::getRow(int xCoord)

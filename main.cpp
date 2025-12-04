@@ -12,6 +12,13 @@ int main()
     Game game;
     game.SelectNames();
     game.start();
-    system("pause");
+    cout << "Une autre partie ? (o/n) : ";
+    char response;
+    cin >> response;
+    if (response == 'o' || response == 'O')
+    {
+        system("cls");
+        main();
+    }
     return 0;
 }
